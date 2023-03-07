@@ -1,6 +1,5 @@
-import { createContext, useState, useEffect, useMemo } from "react";
-import apiCategory from "../src/api/apiUser";
-import { apiProduct } from "../src/api/apiUser";
+import { createContext, useEffect, useMemo, useState } from "react";
+import apiCategory, { apiProduct } from "../src/api/apiUser";
 
 export const UserContext = createContext();
 
@@ -19,8 +18,13 @@ export function PassContext({ children }) {
 
   useEffect(() => {
     apiCategory.fetch().then((resolve) => setCategory(resolve));
-    apiProduct.fetch().then((resolve) => setProduct(resolve));
+    apiProduct.fetch().then((resolve) => {
+      //console.log("resolve", resolve);
+      setProduct(resolve);
+    });
   }, []);
+
+  //console.log("🚀 ~ file: Context.js:9 ~ PassContext ~ product:", product);
 
   const value = useMemo(
     () => ({

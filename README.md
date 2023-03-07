@@ -13,3 +13,5 @@ The filtered have differents logic, for instance: category and rating filters ar
 # `screenShot`
 
 <img src="./1.png">
+<img src="./2.png">
+<img src="./3.png">
